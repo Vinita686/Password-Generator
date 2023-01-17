@@ -15,37 +15,30 @@ var upperCasedCharacters = ['A','B','C','D','E','F','G','H','I','J','K','L','M',
 
 function generatePassword() 
 {
-    var allInOne = [];              //an empty array to store all the characterset options.
+  //an empty array to store all the characterset options.
+  var allInOne = [];              
 
-    var finalText = "";
+  var finalText = "";
 
-    let lengthOfPassword = prompt ("Choose the length of password between 10 and 64.");
-      
-    if (isNaN(lengthOfPassword)) 
-    {                                     //alerting user to choose only a number value.
+  let lengthOfPassword = prompt ("Choose the length of password between 10 and 64.");
 
-      alert("Password length should be a number.Please choose between 10 and 64");
-      return;
+  //validation criteria for the password
+  while (lengthOfPassword < 10 || lengthOfPassword > 64 || isNaN(lengthOfPassword)) 
+    {                                     
+    alert("Password length should be a number between 10 and 64. Please try again!!");
+    return null;
+    }
 
-    } else if (lengthOfPassword < 10 || lengthOfPassword > 64) 
-    {                                      //alerting user to choose the value between 10 and 64.
+    //confirm user choises of characterset to include in the password.
+    let askUpperCase = confirm ("Do you want Upper case letters in your password?");
+    let askLowerCase = confirm ("Do you want lower case letters in your password?");
+    let askSplChar = confirm ("Do you want special characters in your password?");
+    let askNum = confirm ("Do you want numbers in your password?");
 
-      alert("Password length should be chosen between 10 and 64");
-      return;
-    };
-
-      //confirm user choises of characterset to include in the password.
-
-    let askUpperCase = confirm ("Do you want Upper case letters?");
-    let askLowerCase = confirm ("Do you want lower case letters?");
-    let askSplChar = confirm ("Do you want special characters?");
-    let askNum = confirm ("Do you want numbers?");
-
-    if (!askUpperCase && !askLowerCase && !askSplChar && !askNum) 
+    if (askUpperCase == false && askLowerCase == false && askSplChar == false && askNum == false)
     {
-        alert ("You must include atleast one type of characterset.");
-        allInOne = [];
-        return;
+     alert("That's invalid ! you must include atleast one type of characterset.");
+      return null;
     } else
     {
       if (askUpperCase == true) 
@@ -62,10 +55,9 @@ function generatePassword()
             allInOne = allInOne.concat(numericCharacters);
       }
     }
-    console.log("now string value is >",allInOne);
-    //for loop to generate the chosen length of random charecters.
     
-    for (var i = 0; i < lengthOfPassword; i++){
+  //for loop to generate the chosen length of random charecters.
+  for (var i = 0; i < lengthOfPassword; i++){
         finalText += allInOne[Math.floor(Math.random() * allInOne.length)];
     }
     return finalText;
@@ -82,7 +74,6 @@ function writePassword()
 
   passwordText.value = password;
 }
-
 
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
