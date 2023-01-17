@@ -23,4 +23,4 @@ The application should generate a password when a user clicks generate password 
 ## Mock- up :
 The following image shows the web application's appearance and functionality:
 
-![Screenshot](/Assets/Screenshot password gen.png)
+![Screenshot](/Assets/images/Screenshot-passwor-gen.png)
