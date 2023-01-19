@@ -19,8 +19,8 @@ The application should generate a password when a user clicks generate password 
 3. Code should validate for each input and at least one character type should be selected.
 4. Once prompts are answered then the password should be generated and displayed in an alert or written to the page.
 
-## You can visit the Deployed Application here: 
+## You can visit the Deployed Application here:  <https://vinita686.github.io/Password-Generator/>
 ## Mock- up :
 The following image shows the web application's appearance and functionality:
 
-![Screenshot](/Assets/Screenshot password gen.png)
+![Screenshot](/Assets/images/Screenshot-password-gen.png)
